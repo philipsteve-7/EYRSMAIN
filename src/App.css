@@ -1,17 +1,23 @@
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* App Container */
 .App {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  height: 100vh;
+  padding: 20px;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-}
-
+/* Auth Page Layout */
 .auth {
   display: flex;
   justify-content: center;
@@ -20,41 +26,91 @@ body {
   background-color: #f2f2f2;
 }
 
+/* Auth form container */
 .auth-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin: 20px;
-  width: 400px;
+  width: 350px;
+  max-width: 90%;
+  transition: all 0.3s ease;
 }
 
+.auth-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Form Group */
 .form-group {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 label {
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #444;
 }
 
 input {
-  padding: 10px;
+  padding: 12px;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  width: 100%;
+  transition: border-color 0.3s ease;
 }
 
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Error Message */
+p.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Navbar Styles */
 .navbar {
   margin: 0;
   width: 100%;
   height: 80px;
-  background-color: blue;
+  background-color: #007bff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,13 +122,15 @@ a {
   color: white;
   text-decoration: none;
   margin: 10px;
-  font-size: 25px;
+  font-size: 20px;
 }
-a:hover{
+
+a:hover {
   scale: 1.1;
   border-bottom: 2px dotted red;
 }
 
+/* Create Recipe Section */
 .create-recipe {
   display: flex;
   flex-direction: column;
@@ -80,59 +138,85 @@ a:hover{
   align-items: center;
   padding: 20px;
   background-color: white;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin: 20px;
   width: 300px;
+  max-width: 100%;
 }
+
 .create-recipe form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
+
+h2 {
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 15px;
 }
 
 li {
-  border: 1px solid black;
-  padding: 10px;
+  border: 1px solid #ddd;
+  padding: 15px;
   margin-bottom: 10px;
+  border-radius: 8px;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
 }
 
-h2 {
-  margin-top: 0;
+li:hover {
+  background-color: #e0e0e0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 img {
   max-width: 100%;
   height: auto;
   margin-bottom: 10px;
-}
-
-img {
-  width: 400px;
+  border-radius: 8px;
 }
 
 p {
-  max-width: 400px;
-  font-size: 12px;
+  font-size: 14px;
   display: -webkit-box;
-  line-clamp: 5;
-  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: 6em
+  margin-bottom: 15px;
+  color: #666;
+  text-align: justify;
 }
 
-button{
-  padding: 5px;
-  cursor: pointer;
-  border-radius: 5px;
-  background-color: aqua;
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .auth-container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .create-recipe {
+    width: 100%;
+  }
+
+  .navbar {
+    height: 60px;
+  }
+
+  a {
+    font-size: 18px;
+  }
 }
