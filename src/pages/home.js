@@ -8,6 +8,7 @@ export const Home = () => {
 
   const userID = useGetUserID();
 
+  // Fetch Recipes and Saved Recipes
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
@@ -31,8 +32,9 @@ export const Home = () => {
 
     fetchRecipes();
     fetchSavedRecipes();
-  }, []);
+  }, [userID]);
 
+  // Save a Recipe
   const saveRecipe = async (recipeID) => {
     try {
       const response = await axios.put("https://eyrsb.onrender.com/recipes", {
@@ -45,15 +47,19 @@ export const Home = () => {
     }
   };
 
+  // Check if a recipe is saved
   const isRecipeSaved = (id) => savedRecipes.includes(id);
 
   return (
     <div>
-      <h1>Recipes</h1>
-      <ul>
-        {recipes.map((recipe) => (
-          <li key={recipe._id}>
-            <div>
+      <h1>All Recipes</h1>
+      {/* Recipe Container */}
+      <div className="recipe-container">
+        {recipes.length === 0 ? (
+          <p>Loading recipes...</p>
+        ) : (
+          recipes.map((recipe) => (
+            <div className="recipe-card" key={recipe._id}>
               <h2>{recipe.name}</h2>
               <button
                 onClick={() => saveRecipe(recipe._id)}
@@ -61,15 +67,13 @@ export const Home = () => {
               >
                 {isRecipeSaved(recipe._id) ? "Saved" : "Save"}
               </button>
-            </div>
-            <div className="instructions">
               <p>{recipe.instructions}</p>
+              <img src={recipe.imageUrl} alt={recipe.name} />
+              <p>Cooking Time: {recipe.cookingTime} minutes</p>
             </div>
-            <img src={recipe.imageUrl} alt={recipe.name} />
-            <p>Cooking Time: {recipe.cookingTime} minutes</p>
-          </li>
-        ))}
-      </ul>
+          ))
+        )}
+      </div>
     </div>
   );
 };

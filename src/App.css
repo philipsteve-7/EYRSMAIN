@@ -17,7 +17,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  padding: 90px;
+  padding: 60px;
 }
 
 /* Auth Page Layout */
@@ -82,21 +82,20 @@ input:focus {
   outline: none;
   background-color: #f0faff;
 }
-
+/* Common Button Styles */
 button {
   padding: 8px;
   font-size: 16px;
   cursor: pointer;
   border-radius: 8px;
-  background-color: #0f9eae;  /* Blue button */
+  background-color: #0f9eae;
   color: white;
   border: none;
-  width: 100%;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
-  background-color: #005fa3;  /* Darker blue for hover state */
+  background-color: #005fa3;
   transform: scale(1.05);
 }
 
@@ -104,6 +103,24 @@ button:disabled {
   background-color: #bbb;
   cursor: not-allowed;
 }
+
+/* Specific Button Styles */
+
+/* Logout button */
+.logout-button {
+  width: 120px; /* Smaller width */
+  padding: 10px; /* More padding for better look */
+  font-size: 14px; /* Smaller font size */
+}
+
+/* Create Recipe button */
+.create-recipe-button {
+  padding: 12px 20px; /* Larger padding for better size */
+  font-size: 24px; /* Larger font size */
+ /* Different color for the create button */
+}
+
+
 
 /* Error Message */
 p.error-message {
@@ -128,10 +145,32 @@ p.error-message {
   z-index: 1000;  /* Ensure the navbar stays on top of other content */
 }
 
-/* Adjust the content below the navbar */
-.App {
-  margin-top: 90px;  /* Add margin to push the content below the navbar */
+/* Adjust space below fixed navbar */
+.navbar {
+  margin: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
+
+/* Ensure content is not hidden behind the navbar */
+.App {
+  margin-top: 70px; /* Adjust this to the height of the navbar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 
 a {
   color: white;
@@ -243,9 +282,9 @@ p {
 /* About Section */
 .about {
   padding: 30px;
-  background-color: #068893;
+  background-color: #11bccc;
   border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(241, 237, 237, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   margin: 25px;
   width: 80%;
   max-width: 900px;
@@ -256,13 +295,13 @@ p {
 .about h2 {
   font-size: 32px;
   font-weight: 600;
-  color: #ffffff;
+  color: #000000;
   margin-bottom: 20px;
 }
 
 .about p {
   font-size: 18px;
-  color: #ffffff;
+  color: #000000;
   line-height: 1.6;
   text-align: justify;
   margin-bottom: 20px;
@@ -270,22 +309,22 @@ p {
 
 /* Contact Section */
 .contact {
-  background-color: #ffffff;
+  background-color: #f9f9f9;
   padding: 20px;
   border-radius: 10px;
   margin-top: 30px;
-  box-shadow: 0 4px 12px rgba(250, 249, 249, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .contact h3 {
   font-size: 28px;
-  color: #ffffff;
+  color: #333;
   margin-bottom: 15px;
 }
 
 .contact p {
   font-size: 16px;
-  color: #ffffff;
+  color: #666;
   margin-bottom: 10px;
 }
 
@@ -300,11 +339,57 @@ p {
 }
 
 .contact a {
-  color: #0d4351;
+  color: #1f8fab;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .contact a:hover {
   color: #005fa3;  /* Darker blue when hovered */
+}
+/* Add margin-top to create space below the navbar */
+.recipe-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  margin-top: 80px; /* Add some space below the navbar */
+}
+.recipe-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.recipe-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.recipe-card button {
+  background-color: #0f9eae;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.recipe-card button:hover {
+  background-color: #005fa3;
+}
+
+.recipe-card h2 {
+  font-size: 18px;
+  color: #333;
+}
+
+.recipe-card p {
+  font-size: 14px;
+  color: #666;
 }
