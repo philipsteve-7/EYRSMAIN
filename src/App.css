@@ -2,12 +2,12 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Arial", sans-serif;
+  font-family: "Arial", "Helvetica", sans-serif;  /* Added a fallback font */
   background-image: url('https://static.vecteezy.com/system/resources/previews/026/858/163/non_2x/of-a-colorful-assortment-of-fruits-and-vegetables-on-a-vibrant-yellow-background-with-copy-space-free-photo.jpg');  /* Set background image */
   background-size: cover;  /* Ensure the image covers the whole page */
   background-position: center;  /* Center the image */
   background-attachment: fixed;  /* Keep the background image fixed when scrolling */
-  color: #333;
+  color: #333333;
 }
 
 /* App Container */
@@ -26,10 +26,9 @@ body {
   justify-content: center;
   align-items: center;
   height: 80vh;
-  position: fixed;
-  background-color: #ffffff;  /* Light grey background for the auth page */
+  position: relative; /* Added relative positioning */
+  top: 1;
 }
-
 
 /* Auth form container */
 .auth-container {
@@ -93,7 +92,7 @@ button {
   color: white;
   border: none;
   width: 100%;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
@@ -134,7 +133,6 @@ p.error-message {
   margin-top: 90px;  /* Add margin to push the content below the navbar */
 }
 
-
 a {
   color: white;
   text-decoration: none;
@@ -159,16 +157,16 @@ a:hover {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   margin: 25px;
   width: 300px;
-  max-width: 60%;
-  position: relative;
-  top: 60%;
-  transform: translateY(-50%);
+  max-width: 50%;
+  position: absolute;  /* Use absolute positioning */
+  top: 70%;  /* Center vertically */
+  left: 50%;  /* Center horizontally */
+  transform: translate(-50%, -50%);  /* Adjust to precisely center the element */
 }
 
 .create-recipe form {
-  display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 80%;
 }
 
 h2 {
@@ -211,12 +209,6 @@ img {
 
 p {
   font-size: 14px;
-  display: -webkit-box;
-  line-clamp: 3;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
   margin-bottom: 15px;
   color: #666;
   text-align: justify;
@@ -234,10 +226,85 @@ p {
   }
 
   .navbar {
-    height: 60%;
+    height: 80px;  /* Adjust navbar height for smaller screens */
   }
 
   a {
-    font-size: 80px;
+    font-size: 26px;
   }
+  
+  /* Mobile Recipe Container Adjustments */
+  .create-recipe {
+    width: 90%;
+    margin-top: 15px; /* Adjust top margin for better spacing on smaller screens */
+  }
+}
+
+/* About Section */
+.about {
+  padding: 30px;
+  background-color: #068893;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(241, 237, 237, 0.1);
+  margin: 25px;
+  width: 80%;
+  max-width: 900px;
+  margin-top: 120px;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.about p {
+  font-size: 18px;
+  color: #ffffff;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
+/* Contact Section */
+.contact {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+  box-shadow: 0 4px 12px rgba(250, 249, 249, 0.1);
+}
+
+.contact h3 {
+  font-size: 28px;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.contact p {
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.contact ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact li {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.contact a {
+  color: #0d4351;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact a:hover {
+  color: #005fa3;  /* Darker blue when hovered */
 }
